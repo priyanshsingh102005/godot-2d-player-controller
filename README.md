@@ -33,5 +33,11 @@ Please keep changes small and focused.
 ### Hurt & Death States
 ![Hurt and Death](media/Hurt_Death.gif)
 
+⚠️ One Important Rule
+When editing DOCX:
+Keep headings consistent
+Don’t change section names randomly
+This makes PDF & README syncing easier later.
+
 > This is an early public release. Internally, newer versions are already
 > in development and improvements are planned.
