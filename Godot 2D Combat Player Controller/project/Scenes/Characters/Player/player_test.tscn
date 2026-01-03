@@ -1,0 +1,319 @@
+[gd_scene load_steps=37 format=3 uid="uid://vnkos0bdg261"]
+
+[ext_resource type="Script" uid="uid://cahofonudbvxs" path="res://Scenes/Characters/Player/player.gd" id="1_404od"]
+[ext_resource type="Texture2D" uid="uid://c8bonfdafgy8i" path="res://Assets/Player/sprite/vagabond-jump-flip.png" id="2_u4wpm"]
+[ext_resource type="Texture2D" uid="uid://bymtv84u1aj4" path="res://Assets/Player/sprite/vagabond-jump.png" id="3_auw8s"]
+[ext_resource type="Texture2D" uid="uid://ds3fli4b3yh6s" path="res://Assets/Player/sprite/vagabond-idle.png" id="4_8ial4"]
+[ext_resource type="Texture2D" uid="uid://4imn0noucldf" path="res://Assets/Player/sprite/vagabond-run.png" id="5_k1y0h"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="6_qlxls"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="7_rhkrr"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="8_7edst"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="9_gba7g"]
+[ext_resource type="Script" uid="uid://bkalc65fj283j" path="res://Scenes/Characters/Player/State_Machine/state_transition_manager.gd" id="10_esy7h"]
+[ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="10_u4wpm"]
+[ext_resource type="Script" uid="uid://f2fvhuujn6bj" path="res://Scenes/Characters/Player/State_Machine/States/idle.gd" id="11_wylft"]
+[ext_resource type="Script" uid="uid://ld185n0h8et0" path="res://Scenes/Characters/Player/State_Machine/States/run.gd" id="12_3osma"]
+[ext_resource type="Script" uid="uid://c8wpwsfkracoo" path="res://Scenes/Characters/Player/State_Machine/States/jump.gd" id="13_cjya7"]
+[ext_resource type="Script" uid="uid://q3cqthb3wn0d" path="res://Scenes/Characters/Player/State_Machine/States/double_jump.gd" id="14_h1aew"]
+[ext_resource type="Script" uid="uid://dyypojxoo85xu" path="res://Scenes/Characters/Player/State_Machine/States/fall.gd" id="15_x5qam"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="16_8vcve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtkie"]
+atlas = ExtResource("2_u4wpm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5nky"]
+atlas = ExtResource("2_u4wpm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcbxy"]
+atlas = ExtResource("2_u4wpm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x37g"]
+atlas = ExtResource("3_auw8s")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr2lv"]
+atlas = ExtResource("3_auw8s")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbl8b"]
+atlas = ExtResource("4_8ial4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4qd8"]
+atlas = ExtResource("4_8ial4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvakg"]
+atlas = ExtResource("3_auw8s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_othne"]
+atlas = ExtResource("3_auw8s")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_revbx"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdeum"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgd1v"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpu4x"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6xpj"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01fh2"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0for"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ahlt"]
+atlas = ExtResource("5_k1y0h")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nqcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtkie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5nky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcbxy")
+}],
+"loop": true,
+"name": &"Double_Jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x37g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr2lv")
+}],
+"loop": false,
+"name": &"Fall",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbl8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4qd8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvakg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_othne")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_revbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdeum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgd1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpu4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6xpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01fh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0for")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ahlt")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vr1d"]
+radius = 3.95
+height = 19.25
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("body", "state_manager")]
+script = ExtResource("1_404od")
+body = NodePath("Body")
+state_manager = NodePath("State_Transition_Manager")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_2nqcr")
+animation = &"Fall"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.63, 2.405)
+shape = SubResource("CapsuleShape2D_2vr1d")
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("6_qlxls")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="root" type="Node" parent="StateChart"]
+script = ExtResource("7_rhkrr")
+initial_state = NodePath("Ground_state")
+
+[node name="Ground_state" type="Node" parent="StateChart/root"]
+script = ExtResource("7_rhkrr")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/root/Ground_state"]
+script = ExtResource("8_7edst")
+
+[node name="to_run" type="Node" parent="StateChart/root/Ground_state/Idle"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Run")
+event = &"run"
+delay_in_seconds = "0.0"
+
+[node name="Run" type="Node" parent="StateChart/root/Ground_state"]
+script = ExtResource("8_7edst")
+
+[node name="to_idle" type="Node" parent="StateChart/root/Ground_state/Run"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Idle")
+event = &"idle"
+delay_in_seconds = "0.0"
+
+[node name="to_air_state" type="Node" parent="StateChart/root/Ground_state"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../ParallelState/Air_State")
+event = &"air"
+delay_in_seconds = "0.0"
+
+[node name="ParallelState" type="Node" parent="StateChart/root"]
+script = ExtResource("10_u4wpm")
+
+[node name="Air_State" type="Node" parent="StateChart/root/ParallelState"]
+script = ExtResource("7_rhkrr")
+initial_state = NodePath("Jump")
+
+[node name="Jump" type="Node" parent="StateChart/root/ParallelState/Air_State"]
+script = ExtResource("8_7edst")
+
+[node name="fall" type="Node" parent="StateChart/root/ParallelState/Air_State/Jump"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Fall")
+event = &"fall"
+delay_in_seconds = "0.0"
+
+[node name="double_jump" type="Node" parent="StateChart/root/ParallelState/Air_State/Jump"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Double_Jump")
+event = &"double_jump"
+delay_in_seconds = "0.0"
+
+[node name="Double_Jump" type="Node" parent="StateChart/root/ParallelState/Air_State"]
+script = ExtResource("8_7edst")
+
+[node name="fall" type="Node" parent="StateChart/root/ParallelState/Air_State/Double_Jump"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Fall")
+event = &"fall"
+delay_in_seconds = "0.0"
+
+[node name="Fall" type="Node" parent="StateChart/root/ParallelState/Air_State"]
+script = ExtResource("8_7edst")
+
+[node name="double_jump" type="Node" parent="StateChart/root/ParallelState/Air_State/Fall"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Double_Jump")
+event = &"double_jump"
+delay_in_seconds = "0.0"
+
+[node name="jump" type="Node" parent="StateChart/root/ParallelState/Air_State/Fall"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../Jump")
+event = &"jump"
+delay_in_seconds = "0.0"
+
+[node name="to_ground_state" type="Node" parent="StateChart/root/ParallelState/Air_State"]
+script = ExtResource("9_gba7g")
+to = NodePath("../../../Ground_state")
+event = &"ground"
+delay_in_seconds = "0.0"
+
+[node name="Run" type="Node" parent="StateChart/root/ParallelState"]
+script = ExtResource("8_7edst")
+
+[node name="State_Transition_Manager" type="Node" parent="." node_paths=PackedStringArray("state_chart", "anim")]
+script = ExtResource("10_esy7h")
+state_chart = NodePath("../StateChart")
+anim = NodePath("../Body/AnimatedSprite2D")
+
+[node name="Idle" type="Node" parent="State_Transition_Manager"]
+script = ExtResource("11_wylft")
+
+[node name="Run" type="Node" parent="State_Transition_Manager"]
+script = ExtResource("12_3osma")
+
+[node name="Jump" type="Node" parent="State_Transition_Manager"]
+script = ExtResource("13_cjya7")
+
+[node name="Double_Jump" type="Node" parent="State_Transition_Manager"]
+script = ExtResource("14_h1aew")
+
+[node name="Fall" type="Node" parent="State_Transition_Manager"]
+script = ExtResource("15_x5qam")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StateChartDebugger" parent="CanvasLayer" instance=ExtResource("16_8vcve")]
+offset_left = 912.0
+offset_top = -48.0
+offset_right = 1047.0
+offset_bottom = 2.0
+initial_node_to_watch = NodePath("../../StateChart")
+
+[connection signal="state_physics_processing" from="StateChart/root/Ground_state" to="State_Transition_Manager" method="_on_ground_state_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/root/Ground_state/Idle" to="State_Transition_Manager/Idle" method="_on_idle_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/root/Ground_state/Idle" to="State_Transition_Manager/Idle" method="_on_idle_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/root/Ground_state/Run" to="State_Transition_Manager/Run" method="_on_run_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/root/Ground_state/Run" to="State_Transition_Manager/Run" method="_on_run_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/root/ParallelState/Air_State" to="State_Transition_Manager" method="_on_air_state_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/root/ParallelState/Air_State/Jump" to="State_Transition_Manager/Jump" method="_on_jump_state_entered"]
+[connection signal="state_entered" from="StateChart/root/ParallelState/Air_State/Double_Jump" to="State_Transition_Manager/Double_Jump" method="_on_double_jump_state_entered"]
+[connection signal="state_entered" from="StateChart/root/ParallelState/Air_State/Fall" to="State_Transition_Manager/Fall" method="_on_fall_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/root/ParallelState/Run" to="State_Transition_Manager/Run" method="_on_run_state_physics_processing"]

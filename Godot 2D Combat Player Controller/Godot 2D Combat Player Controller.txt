@@ -1,0 +1,21 @@
+Godot 2D Combat Player Controller
+
+This project contains a modular 2D combat-focused player controller
+built in Godot 4.
+
+Quick Start:
+1. Open the project in Godot
+2. Open Scenes/TestScene.tscn
+3. Press Play
+
+Documentation:
+- Full documentation is available in the docs folder
+- A complete video explanation is available in the YouTube playlist
+
+Note:
+If you are new, it is recommended to watch the tutorial playlist
+from the beginning to understand the system properly.
+
+🎥 YouTube Tutorial Playlist
+https://www.youtube.com/playlist?list=PLoi6vvfocDd7S-243oG-e6McVd4Yz4Iqv
+
