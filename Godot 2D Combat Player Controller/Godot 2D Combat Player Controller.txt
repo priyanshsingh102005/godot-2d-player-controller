@@ -16,7 +16,7 @@ Note:
 If you are new, it is recommended to watch the tutorial playlist
 from the beginning to understand the system properly.
 
-there is a hit box in main to activate hurt state please remove the hit box and run the demo scene
+there is a hit box in test scene to activate hurt state please remove the hit box and run the demo scene
 
 🎥 YouTube Tutorial Playlist
 https://www.youtube.com/playlist?list=PLoi6vvfocDd7S-243oG-e6McVd4Yz4Iqv
