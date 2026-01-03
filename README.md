@@ -1,6 +1,18 @@
 # godot-2d-player-controller
 A free 2D player controller built with Godot 4, using the State Chart addon for state management. Features frame-independent movement, ground &amp; air attacks with 3-hit combos, dash (ground &amp; air), jump systems (double jump, coyote time, jump buffer), hitbox &amp; hurtbox logic, hurt/death mechanics, and priority-based state transitions. 
 
+## Contributing
+
+This project is open source and contributions are welcome.
+
+You can contribute by:
+- Reporting bugs
+- Suggesting improvements
+- Improving documentation
+- Submitting pull requests
+
+Please keep changes small and focused.
+
 ## Demo
 
 ### Idle & Run
@@ -20,3 +32,6 @@ A free 2D player controller built with Godot 4, using the State Chart addon for 
 
 ### Hurt & Death States
 ![Hurt and Death](media/Hurt_Death.gif)
+
+> This is an early public release. Internally, newer versions are already
+> in development and improvements are planned.
